@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<!-- saved from url=(0053)file:///C:/Users/ABDULLAH/OneDrive/Documents/web.html -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
   <title>Abdulrehman - Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Font -->
-  <link href="./Abdulrehman.arain - Portfolio (1)_files/css2" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="./Abdulrehman.arain - Portfolio (1)_files/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #0a0f24, #1b2735);
       color: #e0e0e0;
       overflow-x: hidden;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    body.light {
+      background: #f5f5f5;
+      color: #0a0f24;
     }
 
     /* Navbar */
@@ -32,12 +37,25 @@
       top: 0;
       z-index: 1000;
       border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+      transition: background 0.5s, color 0.5s;
     }
+
+    nav.light {
+      background: rgba(245, 245, 245, 0.95);
+      border-bottom: 1px solid #ffd700;
+    }
+
     nav h2 {
       color: #ffd700;
       font-size: 1.5rem;
       letter-spacing: 1px;
+      transition: color 0.5s;
     }
+
+    nav.light h2 {
+      color: #ff9800;
+    }
+
     nav ul {
       list-style: none;
       display: flex;
@@ -53,6 +71,23 @@
       color: #ffd700;
     }
 
+    nav.light ul li a {
+      color: #0a0f24;
+    }
+    nav.light ul li a:hover {
+      color: #ff9800;
+    }
+
+    .toggle-btn {
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: #ffd700;
+      transition: color 0.5s;
+    }
+    nav.light .toggle-btn {
+      color: #ff9800;
+    }
+
     /* Hero */
     header {
       text-align: center;
@@ -60,30 +95,30 @@
       background: linear-gradient(135deg, #0f172a, #1e293b);
       color: #fff;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+      transition: background 0.5s, color 0.5s;
     }
-    header img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 4px solid #ffd700;
-      object-fit: cover;
-      box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
-      margin-bottom: 25px;
-      transition: transform 0.3s ease;
-    }
-    header img:hover {
-      transform: scale(1.05);
+    body.light header {
+      background: #e0e0e0;
+      color: #0a0f24;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
     }
     header h1 {
       font-size: 2.6rem;
       margin-bottom: 10px;
       color: #ffd700;
+      transition: color 0.5s;
+    }
+    body.light header h1 {
+      color: #ff9800;
     }
     header p {
       font-size: 1.2rem;
       margin-bottom: 25px;
       opacity: 0.9;
       color: #cfd8dc;
+    }
+    body.light header p {
+      color: #333;
     }
     .btn {
       display: inline-block;
@@ -115,13 +150,21 @@
       color: #fff;
       transform: scale(1.2);
     }
+    body.light .social-links a {
+      color: #ff9800;
+    }
 
-    /* Section Base */
+    /* Sections */
     section {
       max-width: 1100px;
       margin: 60px auto;
       padding: 40px 25px;
       border-radius: 15px;
+      transition: background 0.5s, color 0.5s;
+    }
+    body.light section {
+      background: rgba(255,255,255,0.9);
+      color: #0a0f24;
     }
     section h2 {
       text-align: center;
@@ -129,6 +172,9 @@
       font-size: 2rem;
       color: #ffd700;
       position: relative;
+    }
+    body.light section h2 {
+      color: #ff9800;
     }
     section h2::after {
       content: "";
@@ -139,68 +185,11 @@
       margin: 10px auto 0;
       border-radius: 3px;
     }
-
-    /* About */
-    #about {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(6px);
-      box-shadow: 0 4px 25px rgba(255, 215, 0, 0.1);
-      text-align: center;
-      padding: 50px;
-    }
-    #about p {
-      max-width: 800px;
-      margin: auto;
-      color: #dcdcdc;
-      font-size: 1.1rem;
-      line-height: 1.7;
+    body.light section h2::after {
+      background: #ff9800;
     }
 
-    /* Skills */
-    #skills {
-      background: rgba(255, 255, 255, 0.04);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      padding: 60px 30px;
-    }
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-    .skill-box {
-      background: rgba(255, 255, 255, 0.07);
-      padding: 35px;
-      border-radius: 14px;
-      text-align: center;
-      font-weight: 600;
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.15);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .skill-box:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
-    }
-    .skill-icon {
-      font-size: 2.5rem;
-      margin-bottom: 12px;
-      color: #ffd700;
-    }
-
-    /* Contact */
-    #contact {
-      background: rgba(255, 255, 255, 0.06);
-      text-align: center;
-      box-shadow: 0 4px 25px rgba(0,0,0,0.3);
-      padding: 50px;
-    }
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
+    /* Contact Boxes */
     .contact-box {
       background: rgba(255, 255, 255, 0.07);
       padding: 25px 35px;
@@ -209,19 +198,19 @@
       transition: 0.3s;
       color: #fff;
     }
+    body.light .contact-box {
+      background: #fff;
+      border: 1px solid #ff9800;
+      color: #0a0f24;
+    }
     .contact-box:hover {
       border-color: #ffd700;
       background: rgba(255, 215, 0, 0.1);
       transform: translateY(-5px);
     }
-    .contact-box p {
-      margin-top: 8px;
-      font-size: 1rem;
-    }
-    .contact-box a {
-      color: #ffd700;
-      text-decoration: none;
-      font-weight: bold;
+    body.light .contact-box:hover {
+      background: #ffecb3;
+      border-color: #ff9800;
     }
 
     /* Footer */
@@ -234,32 +223,39 @@
       border-top: 1px solid rgba(255,215,0,0.2);
       font-size: 0.9rem;
       letter-spacing: 0.5px;
+      transition: background 0.5s, color 0.5s;
+    }
+    body.light footer {
+      background: #f5f5f5;
+      color: #0a0f24;
+      border-top: 1px solid #ff9800;
     }
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav>
+  <nav id="navbar">
     <h2>Abdulrehman</h2>
     <ul>
-      <li><a href="file:///C:/Users/ABDULLAH/OneDrive/Documents/web.html#about">About</a></li>
-      <li><a href="file:///C:/Users/ABDULLAH/OneDrive/Documents/web.html#skills">Skills</a></li>
-      <li><a href="file:///C:/Users/ABDULLAH/OneDrive/Documents/web.html#contact">Contact</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="toggle-btn" id="theme-toggle" title="Toggle Dark/Light Mode">
+      <i class="fas fa-sun"></i>
+    </div>
   </nav>
 
   <!-- Hero Section -->
   <header>
-    <img src="./Abdulrehman.arain - Portfolio (1)_files/abdul.jpeg.jpeg" alt="Abdulrehman Profile Photo">
-
     <h1>Hi, I'm Abdulrehman</h1>
     <p>Web Development Student | Python | Cyber Security</p>
-    <a href="file:///C:/Users/ABDULLAH/OneDrive/Documents/web.html#contact" class="btn">Hire Me</a>
+    <a href="#contact" class="btn">Hire Me</a>
 
     <div class="social-links">
-      <a href="file:///C:/Users/ABDULLAH/OneDrive/Documents/web.html#"><i class="fab fa-linkedin"></i></a>
-      <a href="file:///C:/Users/ABDULLAH/OneDrive/Documents/web.html#"><i class="fab fa-github"></i></a>
+      <a href="https://github.com/abdulrehmanarain-web"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
     </div>
   </header>
 
@@ -276,7 +272,7 @@
     <div class="skills">
       <div class="skill-box">
         <div class="skill-icon">🌐</div>
-        web-Development
+        Web Development
       </div>
       <div class="skill-box">
         <div class="skill-icon">🐍</div>
@@ -295,7 +291,7 @@
     <div class="contact-info">
       <div class="contact-box">
         📧 
-        <p><a href="mailto:abdulrehman@example.com">abdulrehman@example.com</a></p>
+        <p><a href="mailto:abdulrehmanarain1104@gmail.com">abdulrehmanarain1104@gmail.com</a></p>
       </div>
       <div class="contact-box">
         📱 
@@ -309,6 +305,21 @@
     © 2025 Abdulrehman | Designed with Passion 💛
   </footer>
 
+  <!-- JS for Dark/Light Mode -->
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const navbar = document.getElementById('navbar');
+    const icon = toggleBtn.querySelector('i');
 
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('light');
+      navbar.classList.toggle('light');
+      icon.classList.toggle('fa-sun');
+      icon.classList.toggle('fa-moon');
+    });
+  </script>
 
-</body></html>
+</body>
+</html>
+
